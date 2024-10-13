@@ -1,5 +1,3 @@
-import { json } from "stream/consumers";
-
 export async function GET() {
   const countryCode = "UA";
   const countryName = "ukraine";
