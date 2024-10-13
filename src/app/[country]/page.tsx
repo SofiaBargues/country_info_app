@@ -2,7 +2,7 @@
 import { stringify } from "querystring";
 import { useEffect, useState } from "react";
 import { CountryResponse } from "../types";
-
+// params.country = iso2-country
 export default function Page({ params }: { params: { country: string } }) {
   const [loading, setLoading] = useState(true);
   const [country, setCountry] = useState<undefined | CountryResponse>(
