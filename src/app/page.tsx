@@ -41,9 +41,9 @@ export default function Home() {
   return (
     <div>
       {countries.map((x, i) => (
-        <button className="border m-2 rounded-md grid " key={i}>
-          {x.name}
-        </button>
+        <a href={"/" + x.countryCode + "-" + x.name} key={i}>
+          <button className="border m-2 rounded-md grid ">{x.name}</button>
+        </a>
       ))}
     </div>
   );

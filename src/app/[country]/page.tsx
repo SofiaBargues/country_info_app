@@ -13,7 +13,7 @@ export default function Page({ params }: { params: { country: string } }) {
     const fetchCountry = async () => {
       setLoading(true);
       try {
-        const response = await fetch("/api/v1/country", {
+        const response = await fetch("/api/v1/country/" + params.country, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

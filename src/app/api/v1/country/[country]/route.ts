@@ -1,13 +1,19 @@
-export async function GET() {
-  const countryCode = "UA";
-  const countryName = "ukraine";
+export async function GET(
+  request: Request,
+  { params }: { params: { country: string } }
+) {
+  const parts = params.country.split("-");
+
+  console.log(parts);
+  const countryCode = parts[0];
+  const countryName = parts[1];
 
   // Country info
   const dataBorder = await fetch(
     "https://date.nager.at/api/v3/CountryInfo/" + countryCode
   );
   const border = await dataBorder.json();
-  console.log(border);
+  // console.log(border);
 
   // Population
   const dataPopulation = await fetch(
@@ -15,7 +21,7 @@ export async function GET() {
       countryName
   );
   const population = await dataPopulation.json();
-  console.log(population);
+  // console.log(population);
 
   // Flag
   const dataFlag = await fetch(
@@ -23,7 +29,7 @@ export async function GET() {
       countryCode
   );
   const flag = await dataFlag.json();
-  console.log(flag);
+  // console.log(flag);
 
   return Response.json({ border, population, flag });
 }
